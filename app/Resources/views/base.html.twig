@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Default page{% endblock %}</title>
+        
+        <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/all.css') }}" />      
+        <link href="{{ asset('dist/css/AdminLTE.css') }}" rel="stylesheet" type="text/css"> 
+      <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+    {% block stylesheets %}{% endblock %}
+
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+  
+    {% block headscript %}<script src="{{ asset('js/all.js') }}"></script>{% endblock %}   
+    
+</head>
+<body class="{% block bodyclass %}default{% endblock %}">
+    {% block body %}
+
+    {% endblock %}    
+
+
+<!-- jQuery -->
+<script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<!-- JavaScript --> 
+
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>
