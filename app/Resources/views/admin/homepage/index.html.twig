@@ -3,11 +3,14 @@
 {% block sectiontitle %}PANEL ADMINISTRACYJNY{% endblock %} 
 {% block sectionsubtitle %}strona główna{% endblock %}
 {% block typeview %}strona główna{% endblock %}
-
+ 
 {% block body %}
 
 {% include 'Partials/info_box.html.twig' %}
 
+<row>
+  {% include 'Partials/map.html.twig' %}  
+</row>
 {% endblock %}
 
 
