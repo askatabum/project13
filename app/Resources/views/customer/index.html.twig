@@ -1,0 +1,52 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <h1>Customers wszystkie rekordy</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Zipcode</th>
+                <th>Postoffice</th>
+                <th>Province</th>
+                <th>Nip</th>
+                <th>Email</th>
+                <th>Phone1</th>
+                <th>Phone2</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for customer in customers %}
+            <tr>
+                <td><a href="{{ path('customer_show', { 'id': customer.id }) }}">{{ customer.id }}</a></td>
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.company }}</td>
+                <td>{{ customer.street }}</td>
+                <td>{{ customer.city }}</td>
+                <td>{{ customer.zipcode }}</td>
+                <td>{{ customer.postoffice }}</td>
+                <td>{{ customer.province }}</td>
+                <td>{{ customer.nip }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.phone1 }}</td>
+                <td>{{ customer.phone2 }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('customer_show', { 'id': customer.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

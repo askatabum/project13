@@ -35,6 +35,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes:
+        - 'bootstrap_3_layout.html.twig' 
     globals:
         page:
             name: ''
@@ -42,6 +44,7 @@ twig:
             copyright: '2018'
             email: --
             phone: --
+
 # Doctrine Configuration
 doctrine:
     dbal:
