@@ -1,17 +1,27 @@
 {% block extends %}
-{{ "{% extends 'baseadmin.html.twig' %}" }}
+    {{ "{% extends 'baseadmin.html.twig' %}" }}
 {% endblock extends %}
 
 {% block body %}
 {{ "{% block body %}" }}
-    <h1>{{ entity_singularized|capitalize }} creation</h1>
-
-    {{ '{{ form_start(form) }}' }}
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">{{ entity_singularized|capitalize }} creation</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        {{ '{{ form_start(form) }}' }}
         {{ '{{ form_widget(form) }}' }}
-        <input type="submit" value="Create" />
-    {{ '{{ form_end(form) }}' }}
+        <input type="submit" value="Utwórz" />
+        {% set hide_edit, hide_delete = true, true %}
+        {{ include('crud/views/others/record_actions.html.twig.twig') -}}
+       
+        {{ '{{ form_end(form) }}' }}
+        <!-- /.box-footer -->
 
-{% set hide_edit, hide_delete = true, true %}
-{{ include('crud/views/others/record_actions.html.twig.twig') -}}
+    </div>
+    <!-- /.box -->
+
 {{ "{% endblock %}" }}
 {% endblock body %}

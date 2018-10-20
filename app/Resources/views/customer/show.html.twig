@@ -56,9 +56,15 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('customer_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    
+        
+         <div class="box-footer">
+              <a href="{{ path('customer_index') }}" class="btn btn-default">Wróć do listy</a>
+     
+            <a href="{{ path('customer_edit', { 'id': customer.id }) }}" class="btn btn-default">Edytuj</a>
+   
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń" class="btn btn-danger pull-right">
+            {{ form_end(delete_form) }}             
+              </div>
 {% endblock %}

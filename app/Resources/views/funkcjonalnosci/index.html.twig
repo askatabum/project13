@@ -1,0 +1,91 @@
+    {% extends 'baseadmin.html.twig' %}
+{% block sectiontitle %}Funkcjonalnoscis{% endblock %}
+{% block sectionsubtitle %}wszystkie rekordy{% endblock %}
+    {% block body %}
+     
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Funkcjonalnoscis  <small>wszystkie rekordy</small></h3>
+            <div class="box-tools pull-right">
+                <a type="button" href="{{ path('funkcjonalnosci_new') }}" class="btn btn-sm btn-success" >
+                    <span class="fa fa-plus-square"></span>Dodaj funkcjonalność
+                </a>
+                   </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Akcje</th>                                    <th>Id</th>                                    <th>Nazwa</th>                                    <th>Opis</th>                                    <th>Staus</th>                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for funkcjonalnosci in funkcjonalnoscis %}
+                        <tr>                            <td>
+                                <a href="{{ path('funkcjonalnosci_show', { 'id': funkcjonalnosci.id }) }}">{{ funkcjonalnosci.id }}</a>
+
+                                <a href="{{ path('funkcjonalnosci_show', { 'id': funkcjonalnosci.id }) }}">show</a>
+
+                                <a href="{{ path('funkcjonalnosci_edit', { 'id': funkcjonalnosci.id }) }}">edit</a>
+
+                            </td>                            <td>
+                                <a href="{{ path('funkcjonalnosci_show', { 'id': funkcjonalnosci.id }) }}">{{ funkcjonalnosci.nazwa }}</a>
+
+                                <a href="{{ path('funkcjonalnosci_show', { 'id': funkcjonalnosci.id }) }}">show</a>
+
+                                <a href="{{ path('funkcjonalnosci_edit', { 'id': funkcjonalnosci.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ funkcjonalnosci.nazwa }}</td>                            <td>
+                                <a href="{{ path('funkcjonalnosci_show', { 'id': funkcjonalnosci.id }) }}">{{ funkcjonalnosci.opis }}</a>
+
+                                <a href="{{ path('funkcjonalnosci_show', { 'id': funkcjonalnosci.id }) }}">show</a>
+
+                                <a href="{{ path('funkcjonalnosci_edit', { 'id': funkcjonalnosci.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ funkcjonalnosci.opis }}</td>                            <td>
+                                <a href="{{ path('funkcjonalnosci_show', { 'id': funkcjonalnosci.id }) }}">{{ funkcjonalnosci.staus }}</a>
+
+                                <a href="{{ path('funkcjonalnosci_show', { 'id': funkcjonalnosci.id }) }}">show</a>
+
+                                <a href="{{ path('funkcjonalnosci_edit', { 'id': funkcjonalnosci.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ funkcjonalnosci.staus }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Akcje</th>
+                            <th>Id</th>
+                            <th>Nazwa</th>
+                            <th>Opis</th>
+                            <th>Staus</th>
+                            
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->   
+        <table>
+            <thead>
+                <tr>
+
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+
+
+
+
+
+        {% endblock %}
+        

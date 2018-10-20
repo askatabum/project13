@@ -1,24 +1,23 @@
-    <ul>
-        <li>
-            <a href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}">Back to the list</a>
-        </li>
+    
+        
+         <div class="box-footer">
+              <a href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}" class="btn btn-default">Wróć do listy</a>
+              
+               {%- if ('edit' in actions) and (not hide_edit) %}
 
-        {%- if ('edit' in actions) and (not hide_edit) %}
-
-        <li>
-            <a href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { '"~ identifier ~"': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">Edit</a>
-        </li>
+     
+            <a href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { '"~ identifier ~"': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}" class="btn btn-default">Edytuj</a>
+      
 
         {%- endif %}
+         {%- if ('delete' in actions) and (not hide_delete) %}
 
-        {%- if ('delete' in actions) and (not hide_delete) %}
-
-        <li>
+   
             {{ '{{ form_start(delete_form) }}' }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Usuń" class="btn btn-danger pull-right">
             {{ '{{ form_end(delete_form) }}' }}
-        </li>
+
 
         {%- endif %}
-
-    </ul>
+             
+              </div>

@@ -101,28 +101,7 @@
                 <section class="sidebar">
 
                     <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu" data-widget="tree">
-                        <li class="header">Menu</li>
-                        <li class="treeview">
-                            <a href="{{ path('homepage') }}">
-                                <i class="fa fa-dashboard"></i> <span>Strona główna</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-
-                        </li>
-
-<li><a href="{{ path('customer') }}"><i class="fa fa-users-cog"></i> <span>Klienci</span></a></li>
-
-
-
-                        <li class="header">Kontakt techniczny</li>  
-                        <li class="header">email: biuro@mediaelements.pl<br />
-                            phone: 739248952</li>
-
-
-                    </ul>
+                  {% include 'menu/index.html.twig' %} 
 
                 </section>
                 <!-- /.sidebar -->
@@ -140,15 +119,18 @@
                         <li><a href="{{  path('homepage') }}"><i class="fa fa-dashboard"></i> Home</a></li>
 
                         <li class="active">{% block typeview %}{% endblock %}</li>
-                    </ol><h1>
+                    </ol>
+                <h1>
                     {% block sectiontitle %}{% endblock %} 
-                    <small>{% block sectionsubtitle %}{% endblock %} </small>
+                    <small>{% block sectionsubtitle %}{% endblock %}</small>
                 </h1>
             </section>
 
             <!-- Main content -->
             <section class="content">
-            {% block body %}{% endblock %}  
+            {% block body %}
+            
+            {% endblock %}  
         </section>
         <!-- /.content -->
     </div>

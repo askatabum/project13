@@ -1,0 +1,38 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <h1>Funkcjonalnosci</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ funkcjonalnosci.id }}</td>
+            </tr>
+            <tr>
+                <th>Nazwa</th>
+                <td>{{ funkcjonalnosci.nazwa }}</td>
+            </tr>
+            <tr>
+                <th>Opis</th>
+                <td>{{ funkcjonalnosci.opis }}</td>
+            </tr>
+            <tr>
+                <th>Staus</th>
+                <td>{{ funkcjonalnosci.staus }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+        
+         <div class="box-footer">
+              <a href="{{ path('funkcjonalnosci_index') }}" class="btn btn-default">Wróć do listy</a>
+     
+            <a href="{{ path('funkcjonalnosci_edit', { 'id': funkcjonalnosci.id }) }}" class="btn btn-default">Edytuj</a>
+   
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń" class="btn btn-danger pull-right">
+            {{ form_end(delete_form) }}             
+              </div>
+{% endblock %}

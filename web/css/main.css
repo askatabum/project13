@@ -64,3 +64,9 @@ font-weight: 300;}
 .btn.btn-flat:hover, .btn-primary:hover{
        background-color: #5bc0de;
 }
+
+/* index table */
+.box-header span.fa.fa-plus-square {
+   margin-right:  5px;
+
+}

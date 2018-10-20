@@ -1,12 +1,18 @@
 {% extends 'baseadmin.html.twig' %}
-
+{% block sectiontitle %}Customers{% endblock %}
+{% block sectionsubtitle %}wszystkie rekordy{% endblock %}
 {% block body %}
-    <h1>Customers wszystkie rekordy</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
+<a href="{{ path('customer_new') }}">Utwórz customer</a> 
+    <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Customers  <small>wszystkie rekordy</small></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+             <th>Akcje</th>
                 <th>Name</th>
                 <th>Company</th>
                 <th>Street</th>
@@ -17,15 +23,29 @@
                 <th>Nip</th>
                 <th>Email</th>
                 <th>Phone1</th>
-                <th>Phone2</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for customer in customers %}
+              
+               
+                </tr>
+                </thead>
+                <tbody>
+                {% for customer in customers %}
             <tr>
-                <td><a href="{{ path('customer_show', { 'id': customer.id }) }}">{{ customer.id }}</a></td>
-                <td>{{ customer.name }}</td>
+               
+                <td>
+                        
+                            <a href="{{ path('customer_show', { 'id': customer.id }) }}" class="btn btn-xs">
+                                <i class="fa fa-eye">
+                                    
+                                </i></a>
+                        
+                            <a href="{{ path('customer_edit', { 'id': customer.id }) }}"class="btn btn-xs">
+                             <i class="fa fa-edit">
+                                    
+                                </i>    
+                            </a> 
+                    
+                </td>
+                <td> <a href="{{ path('customer_edit', { 'id': customer.id }) }}"class="btn btn-xs">{{ customer.name }} </a> </td>
                 <td>{{ customer.company }}</td>
                 <td>{{ customer.street }}</td>
                 <td>{{ customer.city }}</td>
@@ -35,18 +55,47 @@
                 <td>{{ customer.nip }}</td>
                 <td>{{ customer.email }}</td>
                 <td>{{ customer.phone1 }}</td>
-                <td>{{ customer.phone2 }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('customer_show', { 'id': customer.id }) }}">show</a>
-                        </li>
-                    </ul>
-                </td>
+               
+               
             </tr>
         {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+               <th>Akcje</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Zipcode</th>
+                <th>Postoffice</th>
+                <th>Province</th>
+                <th>Nip</th>
+                <th>Email</th>
+                <th>Phone1</th>
+               
+                
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->   
+    <table>
+        <thead>
+            <tr>
+            
+            </tr>
+        </thead>
+        <tbody>
+      
         </tbody>
     </table>
 
-    
+   
+   
+   
+  
+
 {% endblock %}
