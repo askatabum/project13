@@ -1,0 +1,66 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <h1>Product</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ product.name }}</td>
+            </tr>
+            <tr>
+                <th>Productid</th>
+                <td>{{ product.productid }}</td>
+            </tr>
+            <tr>
+                <th>Size</th>
+                <td>{{ product.size }}</td>
+            </tr>
+            <tr>
+                <th>Serialnumber</th>
+                <td>{{ product.serialnumber }}</td>
+            </tr>
+            <tr>
+                <th>Yearofproduction</th>
+                <td>{{ product.yearofproduction }}</td>
+            </tr>
+            <tr>
+                <th>Coronanumber</th>
+                <td>{{ product.coronanumber }}</td>
+            </tr>
+            <tr>
+                <th>Producernumber</th>
+                <td>{{ product.producernumber }}</td>
+            </tr>
+            <tr>
+                <th>Customerid</th>
+                <td>{{ product.customerid }}</td>
+            </tr>
+            <tr>
+                <th>Descriptionlocation</th>
+                <td>{{ product.descriptionlocation }}</td>
+            </tr>
+            <tr>
+                <th>Tank</th>
+                <td>{{ product.tank }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+        
+         <div class="box-footer">
+              <a href="{{ path('product_index') }}" class="btn btn-default">Wróć do listy</a>
+     
+            <a href="{{ path('product_edit', { 'id': product.id }) }}" class="btn btn-default">Edytuj</a>
+   
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń" class="btn btn-danger pull-right">
+            {{ form_end(delete_form) }}             
+              </div>
+{% endblock %}

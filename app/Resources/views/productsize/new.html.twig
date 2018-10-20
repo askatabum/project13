@@ -1,0 +1,25 @@
+    {% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Productsize creation</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Utwórz" />
+                    
+        
+         <div class="box-footer">
+              <a href="{{ path('productsize_index') }}" class="btn btn-default">Wróć do listy</a>             
+              </div>
+{{ form_end(form) }}
+        <!-- /.box-footer -->
+
+    </div>
+    <!-- /.box -->
+
+{% endblock %}

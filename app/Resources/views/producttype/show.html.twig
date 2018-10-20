@@ -1,0 +1,30 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <h1>Producttype</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ productType.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ productType.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+        
+         <div class="box-footer">
+              <a href="{{ path('producttype_index') }}" class="btn btn-default">Wróć do listy</a>
+     
+            <a href="{{ path('producttype_edit', { 'id': productType.id }) }}" class="btn btn-default">Edytuj</a>
+   
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń" class="btn btn-danger pull-right">
+            {{ form_end(delete_form) }}             
+              </div>
+{% endblock %}

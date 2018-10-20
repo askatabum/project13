@@ -1,0 +1,156 @@
+    {% extends 'baseadmin.html.twig' %}
+{% block sectiontitle %}Products{% endblock %}
+{% block sectionsubtitle %}wszystkie rekordy{% endblock %}
+    {% block body %}
+     
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Products  <small>wszystkie rekordy</small></h3>
+            <div class="box-tools pull-right">
+                  <a type="button" href="{{ path('product_new') }}" class="btn btn-sm btn-success" >
+                    <span class="fa fa-plus-square"></span>Utwórz product
+                </a>
+                   </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Akcje</th>                                    <th>Id</th>                                    <th>Name</th>                                    <th>Productid</th>                                    <th>Size</th>                                    <th>Serialnumber</th>                                    <th>Yearofproduction</th>                                    <th>Coronanumber</th>                                    <th>Producernumber</th>                                    <th>Customerid</th>                                    <th>Descriptionlocation</th>                                    <th>Tank</th>                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in products %}
+                        <tr>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.id }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.name }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ product.name }}</td>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.productid }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ product.productid }}</td>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.size }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ product.size }}</td>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.serialnumber }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ product.serialnumber }}</td>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.yearofproduction }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ product.yearofproduction }}</td>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.coronanumber }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ product.coronanumber }}</td>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.producernumber }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ product.producernumber }}</td>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.customerid }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ product.customerid }}</td>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.descriptionlocation }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ product.descriptionlocation }}</td>                            <td>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.tank }}</a>
+
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+
+                            </td>
+                            <td>{{ product.tank }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Akcje</th>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Productid</th>
+                            <th>Size</th>
+                            <th>Serialnumber</th>
+                            <th>Yearofproduction</th>
+                            <th>Coronanumber</th>
+                            <th>Producernumber</th>
+                            <th>Customerid</th>
+                            <th>Descriptionlocation</th>
+                            <th>Tank</th>
+                            
+                        </tr>
+                    </tfoot>
+                </table>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->   
+        <table>
+            <thead>
+                <tr>
+
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+
+
+
+
+
+        {% endblock %}
+        
