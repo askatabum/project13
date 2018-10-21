@@ -1,74 +1,57 @@
-    {% extends 'baseadmin.html.twig' %}
-{% block sectiontitle %}Productsizes{% endblock %}
-{% block sectionsubtitle %}wszystkie rekordy{% endblock %}
-    {% block body %}
-     
-        <div class="box">
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+   <div class="box boxtable">
             <div class="box-header">
-                <h3 class="box-title">Productsizes  <small>wszystkie rekordy</small></h3>
+                <h3 class="box-title">{{ 'Productsizes'| trans }} <small>wszystkie rekordy</small></h3>
                 <div class="box-tools pull-right">
                     <a type="button" href="{{ path('productsize_new') }}" class="btn btn-sm btn-success" >
-                        <span class="fa fa-plus-square"></span>Utwórz productSize
+                        <span class="fa fa-plus-square"></span>
+                        {{ 'create' | trans }} {{ 'productSize'| trans }}
                     </a>
                 </div>
             </div>
             <!-- /.box-header -->
+            
+            
+            
+            
+            
             <div class="box-body">
                 <div class="table-responsive">
                     <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Akcje</th>                                <th>Id</th>                                <th>Name</th>                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for productSize in productSizes %}
-                            <tr>                                <td>
-                                    <a href="{{ path('productsize_show', { 'id': productSize.id }) }}">{{ productSize.id }}</a>
+        <thead>
+            <tr>
+                <th>{{ 'id'| trans }}</th>
+                <th>{{ 'name'| trans }}</th>            
 
-                                    <a href="{{ path('productsize_show', { 'id': productSize.id }) }}">show</a>
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for productSize in productSizes %}
+            <tr>    <td>
+                                        <a href="{{ path('productsize_show', { 'id': productSize.id }) }}" class="btn btn-xs">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                       
+                    
+                       
+                                        <a href="{{ path('productsize_edit', { 'id': productSize.id }) }}"class="btn btn-xs">
+                        <i class="fa fa-edit"></i>    
+                    </a>   
+                          <a href="{{ path('productsize_show', { 'id': productSize.id }) }}">{{ productSize.id }}</a> 
+                </td>
+                <td>{{ productSize.name }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-                                    <a href="{{ path('productsize_edit', { 'id': productSize.id }) }}">edit</a>
-
-                                </td>                                <td>
-                                    <a href="{{ path('productsize_show', { 'id': productSize.id }) }}">{{ productSize.name }}</a>
-
-                                    <a href="{{ path('productsize_show', { 'id': productSize.id }) }}">show</a>
-
-                                    <a href="{{ path('productsize_edit', { 'id': productSize.id }) }}">edit</a>
-
-                                </td>
-                                <td>{{ productSize.name }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
+</div>
             </div>
             <!-- /.box-body -->
         </div>
-        <!-- /.box -->   
-        <table>
-            <thead>
-                <tr>
+     
 
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
-
-
-
-
-
-
-        {% endblock %}
-        
+{% endblock %}

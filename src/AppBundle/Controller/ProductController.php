@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Product controller.
  *
- * @Route("product")
+ * @Route("_appadmin/product")
  */
 class ProductController extends Controller
 {
@@ -121,6 +121,9 @@ class ProductController extends Controller
         return $this->redirectToRoute('product_index');
     }
 
+  
+    
+    
     /**
      * Creates a form to delete a product entity.
      *
@@ -136,4 +139,6 @@ class ProductController extends Controller
             ->getForm()
         ;
     }
+
+
 }

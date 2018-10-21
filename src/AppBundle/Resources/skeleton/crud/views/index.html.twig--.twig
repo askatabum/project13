@@ -1,0 +1,120 @@
+{% block extends %}
+    {{ "{% extends 'baseadmin.html.twig' %}" }}
+{% endblock extends %}
+{{ "{% block sectiontitle %}" }}{{ entity_pluralized|capitalize }}{{ "{% endblock %}" }}
+{{ "{% block sectionsubtitle %}" }}wszystkie rekordy{{ "{% endblock %}" }}
+{% block body %}
+    {{ "{% block body %}" }}
+    {% if 'new' in actions -%}
+
+        {%- endif %} 
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">{{ entity_pluralized|capitalize }}  <small>wszystkie rekordy</small></h3>
+                <div class="box-tools pull-right">
+                    <a type="button" href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-sm btn-success" >
+                        <span class="fa fa-plus-square"></span>Utwórz {{ entity_singularized }}
+                    </a>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                               
+                                    {%- for field, metadata in fields %}
+                                <th>{{ field|capitalize }}</th>                                    
+                                    {%- endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ '{% for ' ~ entity_singularized ~ ' in ' ~ entity_pluralized ~ ' %}' }}
+                            <tr>
+
+                                {%- for field, metadata in fields %}
+                                <td>
+                                   
+                                    {%- for action in record_actions %}
+
+
+                                    <a href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { '"~ identifier ~"': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">{{ action }}</a>
+
+
+                                    {%- endfor %}
+
+
+                                </td>
+                                {%- if loop.first and ('show' in actions) %}
+
+
+
+                                {%- elseif metadata.type in ['datetime'] %}
+
+                                <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+                                {%- elseif metadata.type in ['date'] %}
+
+                                <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d\') }}{% endif %}' }}</td>
+
+                                {%- elseif metadata.type in ['time'] %}
+
+                                <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'H:i:s\') }}{% endif %}' }}</td>
+
+                                {%- elseif metadata.type in ['array'] %}
+
+                                <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|join(\', \') }}{% endif %}' }}</td>
+
+                                {%- elseif metadata.type in ['boolean'] %}
+
+                                <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}Yes{% else %}No{% endif %}' }}</td>
+
+                                {%- else %}
+
+                                <td>{{ '{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+                                {%- endif %}
+
+
+                                {%- endfor %}
+
+                            </tr>
+                            {{ '{% endfor %}' }}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+
+                                {%- for field, metadata in fields %}
+
+                                <th>{{ field|capitalize }}</th>
+
+                                {%- endfor %}
+
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->   
+        <table>
+            <thead>
+                <tr>
+
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+
+
+
+
+
+        {{ "{% endblock %}" }}
+        {% endblock body %}

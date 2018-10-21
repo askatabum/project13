@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Customer controller.
  *
- * @Route("customer")
+ * @Route("_appadmin/customer")
  */
 class CustomerController extends Controller
 {
@@ -48,7 +48,10 @@ class CustomerController extends Controller
             $em->persist($customer);
             $em->flush();
 
-            return $this->redirectToRoute('customer_show', array('id' => $customer->getId()));
+       
+                return $this->redirectToRoute('customer_index', array('id' => $customer->getId()));
+         
+
         }
 
         return $this->render('customer/new.html.twig', array(
@@ -118,6 +121,9 @@ class CustomerController extends Controller
         return $this->redirectToRoute('customer_index');
     }
 
+  
+    
+    
     /**
      * Creates a form to delete a customer entity.
      *
@@ -133,4 +139,6 @@ class CustomerController extends Controller
             ->getForm()
         ;
     }
+
+
 }

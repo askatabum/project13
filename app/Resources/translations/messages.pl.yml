@@ -1,0 +1,27 @@
+name: Nazwa
+id: Akcje
+create: Utwórz
+productSize: Rozmiar produktu
+Productsize: Rozmiar produktu
+Productsizes: Rozmiar produktów
+Customers: Klienci
+customer: Klient
+company: Firma
+street: Ulica
+city: Miejscowość
+zipcode: Kod pocztowy
+postoffice: Poczta
+province: Województwo
+nip: Nip
+email: E-mail
+phone1: Telefon 1
+phone2: Telefon 2
+
+Producttypes: Typy produktu
+productType:  Typ produktu
+Producttype:  Typ produktu
+Customer:
+    name: Nazwa
+
+Product:
+    name: 'Nazwa produktu'

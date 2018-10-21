@@ -7,18 +7,24 @@
     <!-- Horizontal Form -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ entity_singularized|capitalize }} creation</h3>
+            <h3 class="box-title">{{ "{{ '" ~ entity_singularized|capitalize ~ "'| trans }}" }} <small>tworzenie</small></h3>
         </div>
         <!-- /.box-header -->
+        <div class="box-body">
         <!-- form start -->
         {{ '{{ form_start(form) }}' }}
         {{ '{{ form_widget(form) }}' }}
-        <input type="submit" value="Utwórz" />
-        {% set hide_edit, hide_delete = true, true %}
+        <input type="submit" class="btn btn-success" value="Utwórz" />
+        </div>
+         <div class="box-footer">
+          {% set hide_edit, hide_delete = true, true %}
         {{ include('crud/views/others/record_actions.html.twig.twig') -}}
        
         {{ '{{ form_end(form) }}' }}
-        <!-- /.box-footer -->
+        </div>
+        <!-- /.box-footer-->
+       
+        
 
     </div>
     <!-- /.box -->

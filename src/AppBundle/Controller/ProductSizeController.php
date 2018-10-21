@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Productsize controller.
  *
- * @Route("/_appadmin/productsize")
+ * @Route("_appadmin/productsize")
  */
 class ProductSizeController extends Controller
 {
@@ -121,6 +121,9 @@ class ProductSizeController extends Controller
         return $this->redirectToRoute('productsize_index');
     }
 
+  
+    
+    
     /**
      * Creates a form to delete a productSize entity.
      *
@@ -136,4 +139,6 @@ class ProductSizeController extends Controller
             ->getForm()
         ;
     }
+
+
 }
