@@ -16,12 +16,37 @@
             </span>
         </a>
     </li>
-    <li><a href="{{ path('customer_index') }}"><i class="fa fa-users-cog"></i> <span>Klienci</span></a></li>
-    <li><a href="{{ path('product_index') }}"><i class="fa fa-users-cog"></i> <span>Produkty</span></a></li>
+    <li><a href="{{ path('customer_index') }}"><i class="fa fa-users-cog"></i> <span>Kontrahenci</span></a></li>
+    <li><a href="#"><i class="fa fa-users-cog"></i> <span>Producenci</span></a></li>
+    <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Produkty</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+           <li><a href="{{ path('product_index') }}"><i class="fa fa-users-cog"></i> <span>Produkty</span></a></li>
   <li><a href="{{ path('producttype_index') }}"><i class="fa fa-users-cog"></i> <span>Rodzaj produktu</span></a></li>
-   <li><a href="{{ path('productsize_index') }}"><i class="fa fa-users-cog"></i> <span>Rozmiar produktu</span></a></li>
- 
-  
+   <li><a href="{{ path('productsize_index') }}"><i class="fa fa-users-cog"></i> <span>Rozmiar produktu</span></a></li> 
+  </ul>
+        </li>
+    <li><a href="#"><i class="fa fa-users-cog"></i> <span>Certyfikaty</span></a></li>
+ <li><a href="#"><i class="fa fa-chart-line"></i> <span>Statystyki</span></a></li>
+    <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Serwis</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+           <li><a href="{{ path('product_index') }}"><i class="fa fa-users-cog"></i> <span>Licencje</span></a></li>
+  <li><a href="{{ path('producttype_index') }}"><i class="fa fa-users-cog"></i> <span>Zlecenia</span></a></li>
+   <li><a href="{{ path('productsize_index') }}"><i class="fa fa-users-cog"></i> <span>Historia serwisowa</span></a></li> 
+  </ul>
+        </li>
+         <li><a href=""><i class="fa fa-wrench"></i> <span>Raporty</span></a></li>
 </ul>
 <div class="callout callout-info">
     <h4>Kontakt techniczny</h4>

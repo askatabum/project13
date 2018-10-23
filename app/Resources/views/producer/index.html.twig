@@ -1,0 +1,57 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+   <div class="box boxtable">
+            <div class="box-header">
+                <h3 class="box-title">{{ 'Producers'| trans }} <small>wszystkie rekordy</small></h3>
+                <div class="box-tools pull-right">
+                    <a type="button" href="{{ path('producer_new') }}" class="btn btn-sm btn-success" >
+                        <span class="fa fa-plus-square"></span>
+                        {{ 'create' | trans }} {{ 'producer'| trans }}
+                    </a>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            
+            
+            
+            
+            
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>{{ 'id'| trans }}</th>
+                <th>{{ 'name'| trans }}</th>            
+
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for producer in producers %}
+            <tr>    <td>
+                                        <a href="{{ path('producer_show', { 'id': producer.id }) }}" class="btn btn-xs">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                       
+                    
+                       
+                                        <a href="{{ path('producer_edit', { 'id': producer.id }) }}"class="btn btn-xs">
+                        <i class="fa fa-edit"></i>    
+                    </a>   
+                          <a href="{{ path('producer_show', { 'id': producer.id }) }}">{{ producer.id }}</a> 
+                </td>
+                <td>{{ producer.name }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+     
+
+{% endblock %}

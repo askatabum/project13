@@ -90,7 +90,8 @@ class Product
      * @ORM\Column(name="tank", type="text", nullable=true, unique=false)
      */
     private $tank;
-
+    
+   
 
     /**
      * Get id

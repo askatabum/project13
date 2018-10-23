@@ -1,0 +1,31 @@
+    {% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">{{ 'Producer'| trans }} <small>tworzenie</small></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+        <!-- form start -->
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" class="btn btn-success" value="Utwórz" />
+        </div>
+         <div class="box-footer">
+                      
+
+<div class="box-footer">
+    <a href="{{ path('producer_index') }}" class="btn btn-default">Wróć do listy</a>
+</div>
+{{ form_end(form) }}
+        </div>
+        <!-- /.box-footer-->
+       
+        
+
+    </div>
+    <!-- /.box -->
+
+{% endblock %}
