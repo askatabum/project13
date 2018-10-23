@@ -7,12 +7,17 @@
 {% block body %}
 
 {% include 'Partials/info_box.html.twig' %}
-<row>
-  {% include 'Partials/sorttable.html.twig' %}  
-</row>
-<row>
-  {% include 'Partials/map.html.twig' %}  
-</row>
+ <div class="row">
+     <div class="col-lg-6">
+         {% include 'Partials/upcomingevents.html.twig' %}  
+     </div>
+ <div class="col-lg-6">
+         {% include 'Partials/expiringlicenses.html.twig' %}
+           {% include 'Partials/historyevents.html.twig' %}
+     </div>
+ </div>
+
+ 
   
 {% endblock %}
 
