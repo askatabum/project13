@@ -42,4 +42,21 @@
          <li><a href=""><i class="fa fa-wrench"></i> <span>Raporty</span></a></li>
 </ul>
 
-   
+    <div  class="panel">
+    <h4>Kontakt techniczny</h4>
+    <p>
+        office@example.com<br />
+        m: 739248952
+    </p>
+    <a href="{{ path('funkcjonalnosci_index') }}" class="btn btn-warning"><i class="fa fa-app-store"></i>Funkcjonalności</a>
+
+    <h4>Status użytkownika</h4>
+    <p>
+        {% for role in app.user.roles %}
+            {{ role }} <br /> 
+        {% endfor %} 
+    </p>
+
+        </div>
+
+
