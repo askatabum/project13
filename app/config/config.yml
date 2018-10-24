@@ -85,4 +85,3 @@ fos_user:
     from_email:
         address: 'example@example.com'
         sender_name: 'example@example.com'
-        
