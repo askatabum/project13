@@ -25,14 +25,16 @@
                 <th>{{ 'id'| trans }}</th>
                 <th>{{ 'name'| trans }}</th>
                 <th>{{ 'company'| trans }}</th>
-              
+                <th>{{ 'street'| trans }}</th>
                 <th>{{ 'city'| trans }}</th>
-               
-       
+                <th>{{ 'zipcode'| trans }}</th>
+                <th>{{ 'postoffice'| trans }}</th>
+                <th>{{ 'province'| trans }}</th>
                 <th>{{ 'nip'| trans }}</th>
                 <th>{{ 'email'| trans }}</th>
                 <th>{{ 'phone1'| trans }}</th>
-                <th>{{ 'phone2'| trans }}</th>            
+                <th>{{ 'phone2'| trans }}</th>
+                <th>{{ 'www'| trans }}</th>            
 
                
             </tr>
@@ -53,13 +55,16 @@
                 </td>
                 <td>{{ customer.name }}</td>
                 <td>{{ customer.company }}</td>
-              
+                <td>{{ customer.street }}</td>
                 <td>{{ customer.city }}</td>
-               
+                <td>{{ customer.zipcode }}</td>
+                <td>{{ customer.postoffice }}</td>
+                <td>{{ customer.province }}</td>
                 <td>{{ customer.nip }}</td>
                 <td>{{ customer.email }}</td>
                 <td>{{ customer.phone1 }}</td>
                 <td>{{ customer.phone2 }}</td>
+                <td>{{ customer.www }}</td>
             </tr>
         {% endfor %}
         </tbody>

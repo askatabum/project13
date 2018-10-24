@@ -1,0 +1,57 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+   <div class="box boxtable">
+            <div class="box-header">
+                <h3 class="box-title">{{ 'Certificates'| trans }} <small>wszystkie rekordy</small></h3>
+                <div class="box-tools pull-right">
+                    <a type="button" href="{{ path('certificate_new') }}" class="btn btn-sm btn-success" >
+                        <span class="fa fa-plus-square"></span>
+                        {{ 'create' | trans }} {{ 'certificate'| trans }}
+                    </a>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            
+            
+            
+            
+            
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>{{ 'id'| trans }}</th>
+                <th>{{ 'pdfFile'| trans }}</th>            
+
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for certificate in certificates %}
+            <tr>    <td>
+                                        <a href="{{ path('certificate_show', { 'id': certificate.id }) }}" class="btn btn-xs">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                       
+                    
+                       
+                                        <a href="{{ path('certificate_edit', { 'id': certificate.id }) }}"class="btn btn-xs">
+                        <i class="fa fa-edit"></i>    
+                    </a>   
+                          <a href="{{ path('certificate_show', { 'id': certificate.id }) }}">{{ certificate.id }}</a> 
+                </td>
+                <td>{{ certificate.pdfFile }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+     
+
+{% endblock %}

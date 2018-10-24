@@ -2,25 +2,27 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Certificate;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
-class CustomerType extends AbstractType
+class CertificateType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('company')->add('street')->add('city')->add('zipcode')->add('postoffice')->add('province')->add('nip')->add('email')->add('phone1')->add('phone2')->add('www');
+        $builder->add('pdfFile', FileType::class, array('label' => 'Brochure (PDF file)'));
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Customer'
+            'data_class' => 'AppBundle\Entity\Certificate'
         ));
     }
 
@@ -29,7 +31,7 @@ class CustomerType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_customer';
+        return 'appbundle_certificate';
     }
 
 

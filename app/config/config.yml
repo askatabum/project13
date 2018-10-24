@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: pl
+    pdf_directory: '%kernel.project_dir%/web/uploads/pdf'
 
 framework:
     #esi: ~
@@ -84,3 +85,14 @@ fos_user:
     from_email:
         address: 'example@example.com'
         sender_name: 'example@example.com'
+        
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_image:
+            uri_prefix: /images/products
+            upload_destination: '%kernel.project_dir%/public/images/products'
+            
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true

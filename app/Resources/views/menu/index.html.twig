@@ -24,7 +24,7 @@
    <li><a href="{{ path('productsize_index') }}"><i class="fa fa-users-cog"></i> <span>Rozmiar produktu</span></a></li> 
   </ul>
         </li>
-    <li><a href="#"><i class="fa fa-users-cog"></i> <span>Certyfikaty</span></a></li>
+    <li><a href="{{ path('certificate_index') }}"><i class="fa fa-users-cog"></i> <span>Certyfikaty</span></a></li>
  <li><a href="#"><i class="fa fa-chart-line"></i> <span>Statystyki</span></a></li>
     <li class="treeview">
           <a href="#">
@@ -41,22 +41,5 @@
         </li>
          <li><a href=""><i class="fa fa-wrench"></i> <span>Raporty</span></a></li>
 </ul>
-
-    <div  class="panel">
-    <h4>Kontakt techniczny</h4>
-    <p>
-        office@example.com<br />
-        m: 739248952
-    </p>
-    <a href="{{ path('funkcjonalnosci_index') }}" class="btn btn-warning"><i class="fa fa-app-store"></i>Funkcjonalności</a>
-
-    <h4>Status użytkownika</h4>
-    <p>
-        {% for role in app.user.roles %}
-            {{ role }} <br /> 
-        {% endfor %} 
-    </p>
-
-        </div>
 
 

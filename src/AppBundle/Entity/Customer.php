@@ -98,7 +98,12 @@ class Customer
      */
     private $phone2;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="www", type="string", length=100, nullable=true)
+     */
+    private $www;
     /**
      * Get id
      *
@@ -372,5 +377,28 @@ class Customer
     {
         return $this->phone2;
     }
-}
 
+    /**
+     * Set www
+     *
+     * @param string $www
+     *
+     * @return Customer
+     */
+    public function setWww($www)
+    {
+        $this->www = $www;
+
+        return $this;
+    }
+
+    /**
+     * Get www
+     *
+     * @return string
+     */
+    public function getWww()
+    {
+        return $this->www;
+    }
+}
