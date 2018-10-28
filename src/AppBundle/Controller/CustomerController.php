@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Customer controller.
  *
- * @Route("/_appadmin/customer")
+ * @Route("_appadmin/customer")
  */
 class CustomerController extends Controller
 {

@@ -23,7 +23,8 @@
         <thead>
             <tr>
                 <th>{{ 'id'| trans }}</th>
-                <th>{{ 'pdfFile'| trans }}</th>            
+                <th>{{ 'pdfFile'| trans }}</th>
+                <th>{{ 'returnedName'| trans }}</th>            
 
                
             </tr>
@@ -43,6 +44,7 @@
                           <a href="{{ path('certificate_show', { 'id': certificate.id }) }}">{{ certificate.id }}</a> 
                 </td>
                 <td>{{ certificate.pdfFile }}</td>
+                <td>{{ certificate.returnedName }}</td>
             </tr>
         {% endfor %}
         </tbody>

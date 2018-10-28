@@ -31,7 +31,13 @@ class Certificate
     private $pdfFile;
 
   
-
+/**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "application/pdf" })
+     */
+    private $returnedName;
     /**
      * Get id
      *
@@ -64,5 +70,29 @@ class Certificate
     public function getPdfFile()
     {
         return $this->pdfFile;
+    }
+
+    /**
+     * Set returnedName
+     *
+     * @param string $returnedName
+     *
+     * @return Certificate
+     */
+    public function setReturnedName($returnedName)
+    {
+        $this->returnedName = $returnedName;
+
+        return $this;
+    }
+
+    /**
+     * Get returnedName
+     *
+     * @return string
+     */
+    public function getReturnedName()
+    {
+        return $this->returnedName;
     }
 }

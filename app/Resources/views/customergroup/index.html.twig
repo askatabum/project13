@@ -1,0 +1,79 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+   <div class="box boxtable">
+            <div class="box-header">
+                <h3 class="box-title">{{ 'Customergroups'| trans }} <small>wszystkie rekordy</small></h3>
+                <div class="box-tools pull-right">
+                    <a type="button" href="{{ path('customergroup_new') }}" class="btn btn-sm btn-success" >
+                        <span class="fa fa-plus-square"></span>
+                        {{ 'create' | trans }} {{ 'customerGroup'| trans }}
+                    </a>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            
+            
+            
+            
+            
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>{{ 'id'| trans }}</th>
+                <th>{{ 'name'| trans }}</th>
+                <th>{{ 'company'| trans }}</th>
+                <th>{{ 'street'| trans }}</th>
+                <th>{{ 'city'| trans }}</th>
+                <th>{{ 'zipcode'| trans }}</th>
+                <th>{{ 'postoffice'| trans }}</th>
+                <th>{{ 'province'| trans }}</th>
+                <th>{{ 'nip'| trans }}</th>
+                <th>{{ 'email'| trans }}</th>
+                <th>{{ 'phone1'| trans }}</th>
+                <th>{{ 'phone2'| trans }}</th>
+                <th>{{ 'www'| trans }}</th>            
+
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for customerGroup in customerGroups %}
+            <tr>    <td>
+                                        <a href="{{ path('customergroup_show', { 'id': customerGroup.id }) }}" class="btn btn-xs">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                       
+                    
+                       
+                                        <a href="{{ path('customergroup_edit', { 'id': customerGroup.id }) }}"class="btn btn-xs">
+                        <i class="fa fa-edit"></i>    
+                    </a>   
+                          <a href="{{ path('customergroup_show', { 'id': customerGroup.id }) }}">{{ customerGroup.id }}</a> 
+                </td>
+                <td>{{ customerGroup.name }}</td>
+                <td>{{ customerGroup.company }}</td>
+                <td>{{ customerGroup.street }}</td>
+                <td>{{ customerGroup.city }}</td>
+                <td>{{ customerGroup.zipcode }}</td>
+                <td>{{ customerGroup.postoffice }}</td>
+                <td>{{ customerGroup.province }}</td>
+                <td>{{ customerGroup.nip }}</td>
+                <td>{{ customerGroup.email }}</td>
+                <td>{{ customerGroup.phone1 }}</td>
+                <td>{{ customerGroup.phone2 }}</td>
+                <td>{{ customerGroup.www }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+     
+
+{% endblock %}

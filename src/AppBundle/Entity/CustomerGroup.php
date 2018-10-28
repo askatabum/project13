@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Customer
+ * CustomerGroup
  *
- * @ORM\Table(name="customer")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CustomerRepository")
+ * @ORM\Table(name="customer_group")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CustomerGroupRepository")
  */
-class Customer
+class CustomerGroup
 {
     /**
      * @var int
@@ -21,12 +21,12 @@ class Customer
      */
     private $id;
     
-/**
-     * @ORM\ManyToOne(targetEntity="CustomerGroup", inversedBy="customer")
-     * @ORM\JoinColumn(name="customerid", referencedColumnName="id")
-     */
-   private $customerid; 
     /**
+     * @ORM\OneToMany(targetEntity="Customer", mappedBy="customerid")
+     */
+    private $customer;
+
+      /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=150)
@@ -34,9 +34,9 @@ class Customer
     private $name;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="company", type="string", length=150)
+     * @ORM\Column(name="company", type="integer")
      */
     private $company;
 
@@ -109,8 +109,11 @@ class Customer
      * @ORM\Column(name="www", type="string", length=100, nullable=true)
      */
     private $www;
-  
-
+   
+public function __toString()
+{
+    return (string) $this->getName();
+}
     /**
      * Get id
      *
@@ -126,7 +129,7 @@ class Customer
      *
      * @param string $name
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setName($name)
     {
@@ -148,9 +151,9 @@ class Customer
     /**
      * Set company
      *
-     * @param string $company
+     * @param integer $company
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setCompany($company)
     {
@@ -162,7 +165,7 @@ class Customer
     /**
      * Get company
      *
-     * @return string
+     * @return integer
      */
     public function getCompany()
     {
@@ -174,7 +177,7 @@ class Customer
      *
      * @param string $street
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setStreet($street)
     {
@@ -198,7 +201,7 @@ class Customer
      *
      * @param string $city
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setCity($city)
     {
@@ -222,7 +225,7 @@ class Customer
      *
      * @param string $zipcode
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setZipcode($zipcode)
     {
@@ -246,7 +249,7 @@ class Customer
      *
      * @param string $postoffice
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setPostoffice($postoffice)
     {
@@ -270,7 +273,7 @@ class Customer
      *
      * @param string $province
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setProvince($province)
     {
@@ -294,7 +297,7 @@ class Customer
      *
      * @param string $nip
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setNip($nip)
     {
@@ -318,7 +321,7 @@ class Customer
      *
      * @param string $email
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setEmail($email)
     {
@@ -342,7 +345,7 @@ class Customer
      *
      * @param string $phone1
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setPhone1($phone1)
     {
@@ -366,7 +369,7 @@ class Customer
      *
      * @param string $phone2
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setPhone2($phone2)
     {
@@ -390,7 +393,7 @@ class Customer
      *
      * @param string $www
      *
-     * @return Customer
+     * @return CustomerGroup
      */
     public function setWww($www)
     {
@@ -408,28 +411,45 @@ class Customer
     {
         return $this->www;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->customer = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
-     * Set customerid
+     * Add customer
      *
-     * @param \AppBundle\Entity\CustomerGroup $customerid
+     * @param \AppBundle\Entity\Customer $customer
      *
-     * @return Customer
+     * @return CustomerGroup
      */
-    public function setCustomerid(\AppBundle\Entity\CustomerGroup $customerid = null)
+    public function addCustomer(\AppBundle\Entity\Customer $customer)
     {
-        $this->customerid = $customerid;
+        $this->customer[] = $customer;
 
         return $this;
     }
 
     /**
-     * Get customerid
+     * Remove customer
      *
-     * @return \AppBundle\Entity\CustomerGroup
+     * @param \AppBundle\Entity\Customer $customer
      */
-    public function getCustomerid()
+    public function removeCustomer(\AppBundle\Entity\Customer $customer)
     {
-        return $this->customerid;
+        $this->customer->removeElement($customer);
+    }
+
+    /**
+     * Get customer
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
     }
 }

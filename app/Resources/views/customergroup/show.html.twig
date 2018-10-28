@@ -1,0 +1,95 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+  <!-- Default box -->
+      <div class="box boxtable">
+        <div class="box-header with-border">
+          <h3 class="box-title">{{ 'Customergroup'| trans }}</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                    title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <div class="box-body">
+         <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ customerGroup.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ customerGroup.name }}</td>
+            </tr>
+            <tr>
+                <th>Company</th>
+                <td>{{ customerGroup.company }}</td>
+            </tr>
+            <tr>
+                <th>Street</th>
+                <td>{{ customerGroup.street }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ customerGroup.city }}</td>
+            </tr>
+            <tr>
+                <th>Zipcode</th>
+                <td>{{ customerGroup.zipcode }}</td>
+            </tr>
+            <tr>
+                <th>Postoffice</th>
+                <td>{{ customerGroup.postoffice }}</td>
+            </tr>
+            <tr>
+                <th>Province</th>
+                <td>{{ customerGroup.province }}</td>
+            </tr>
+            <tr>
+                <th>Nip</th>
+                <td>{{ customerGroup.nip }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ customerGroup.email }}</td>
+            </tr>
+            <tr>
+                <th>Phone1</th>
+                <td>{{ customerGroup.phone1 }}</td>
+            </tr>
+            <tr>
+                <th>Phone2</th>
+                <td>{{ customerGroup.phone2 }}</td>
+            </tr>
+            <tr>
+                <th>Www</th>
+                <td>{{ customerGroup.www }}</td>
+            </tr>
+        </tbody>
+    </table>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            
+
+<div class="box-footer">
+    <a href="{{ path('customergroup_index') }}" class="btn btn-default">Wróć do listy</a>
+
+    <a href="{{ path('customergroup_edit', { 'id': customerGroup.id }) }}" class="btn btn-default">Edytuj</a>
+
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Usuń" class="btn btn-danger pull-right">
+    {{ form_end(delete_form) }}
+</div>
+</div>
+        <!-- /.box-footer-->
+      </div>
+      <!-- /.box -->
+      {% endblock %}
+   
+
+

@@ -6,15 +6,26 @@ Productsize: Rozmiar produktu
 Productsizes: Rozmiar produktów
 Customers: Klienci
 customer: klienta
+Customer: Klient
+Name: Nazwa firmy
 company: Firma
+Street: Ulica
 street: Ulica
+City: Miejscowość
 city: Miejscowość
+Zipcode: Kod pocztowy
 zipcode: Kod pocztowy
+Postoffice: Poczta
 postoffice: Poczta
+Province: Województwo
 province: Województwo
+Nip: Nip
 nip: Nip
+Email: E-mail
 email: E-mail
+Phone1: Telefon 1
 phone1: Telefon 1
+Phone2: Telefon 2
 phone2: Telefon 2
 producer: producenta
 Producer: Producent
@@ -22,6 +33,20 @@ Producers: Producenci
 Producttypes: Typy produktu
 productType:  Typ produktu
 Producttype:  Typ produktu
+Customerid: Grupa kapitałowa, spółka matka
+customerid:: Grupa kapitałowa
+productid: Product
+size: Rozmiar
+serialnumber: Numer seryjny
+yearofproduction: Rok produkcji
+coronanumber: Indeks Corona
+producernumber: Indeks Klienta
+descriptionlocation: Opis lokalizacji
+tank: Zbiornik
+Certificates: Certyfikaty
+certificate: certyfikat
+pdfFile: Plik w systemie
+returnedName: Nazwa zwracana   
 Customer:
     name: Nazwa
 

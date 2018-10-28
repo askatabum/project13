@@ -2,11 +2,9 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Certificate;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class CertificateType extends AbstractType
 {
@@ -15,7 +13,7 @@ class CertificateType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('pdfFile', FileType::class, array('label' => 'Brochure (PDF file)'));
+        $builder->add('pdfFile')->add('returnedName');
     }/**
      * {@inheritdoc}
      */

@@ -31,7 +31,8 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <script src="{{ asset('bundles/petkoparacrudgenerator/js/petkopara-crud-generator.js') }}"></script>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+   <script src="{{ asset('bundles/petkoparacrudgenerator/js/petkopara-crud-generator.js') }}"></script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini {% block bodyclass %}default{% endblock %}">
         <!-- Site wrapper -->
@@ -39,7 +40,7 @@
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="{{ url('homepage') }}" class="logo">
+                <a href="{% block urlhomepage %}{{ url('admin_homepage') }}{% endblock %}" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>CRM</b></span>
                     <!-- logo for regular state and mobile devices -->
@@ -61,8 +62,8 @@
                             <!-- Notifications: style can be found in dropdown.less -->
                             <li class="dropdown notifications-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-bell-o"></i>
-                                    <span class="label label-warning">0</span>
+                                    <i class="fa fa-calendar"></i>
+                                    <span class="label label-success">0</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="header">Powiadomienia</li>
@@ -71,7 +72,7 @@
                                         <ul class="menu">
                                             <li>
                                                 <a href="#">
-                                                    <i class="fa fa-users text-aqua"></i> Zdarzenia serwisowe
+                                                    <i class="fa fa-tasks"></i> Brak zaplanowanych zadań
                                                 </a>
                                             </li>
                                         </ul>
@@ -84,7 +85,7 @@
 
                         </ul> 
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <a href="{{ path('fos_user_security_logout') }}" class="btn btn-danger logout"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                            <a href="{{ path('fos_user_security_logout') }}" class="btn btn-danger logout"><i class="fa fa-sign-out-alt" aria-hidden="true"></i>
 
                             </a>
                         {% endif %}
