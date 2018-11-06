@@ -1,11 +1,7 @@
 {% extends 'baseadmin.html.twig' %}
-{% block title %}PANEL ADMINISTRACYJNY | {{ pagetitle|default('Logowanie') }} {% endblock %}
-{% block sectiontitle %}PANEL ADMINISTRACYJNY{% endblock %} 
-{% block sectionsubtitle %}podtytuł{% endblock %}
-{% block typeview %}typ widoku{% endblock %}
 
 {% block body %}
-    <h1>Customergroup edit</h1>
+    <h1>Province edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -15,7 +11,7 @@
     
 
 <div class="box-footer">
-    <a href="{{ path('customergroup_index') }}" class="btn btn-default">Wróć do listy</a>
+    <a href="{{ path('province_index') }}" class="btn btn-default">Wróć do listy</a>
 
     {{ form_start(delete_form) }}
     <input type="submit" value="Usuń" class="btn btn-danger pull-right">

@@ -68,13 +68,12 @@ class Customer
      */
     private $postoffice;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="province", type="string", length=255)
+    
+/**
+     * @ORM\ManyToOne(targetEntity="Province", inversedBy="customer")
+     * @ORM\JoinColumn(name="provinceid", referencedColumnName="id")
      */
-    private $province;
-
+   private $province; 
     /**
      * @var string
      *

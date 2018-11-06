@@ -1,14 +1,10 @@
 {% extends 'baseadmin.html.twig' %}
-{% block title %}PANEL ADMINISTRACYJNY | {{ pagetitle|default('Logowanie') }} {% endblock %}
-{% block sectiontitle %}PANEL ADMINISTRACYJNY{% endblock %} 
-{% block sectionsubtitle %}podtytuł{% endblock %}
-{% block typeview %}typ widoku{% endblock %}
 
 {% block body %}
   <!-- Default box -->
       <div class="box boxtable">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ 'Certificate'| trans }}</h3>
+          <h3 class="box-title">{{ 'Province'| trans }}</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -23,15 +19,11 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ certificate.id }}</td>
+                <td>{{ province.id }}</td>
             </tr>
             <tr>
-                <th>Pdffile</th>
-                <td>{{ certificate.pdfFile }}</td>
-            </tr>
-            <tr>
-                <th>Returnedname</th>
-                <td>{{ certificate.returnedName }}</td>
+                <th>Name</th>
+                <td>{{ province.name }}</td>
             </tr>
         </tbody>
     </table>
@@ -41,9 +33,9 @@
             
 
 <div class="box-footer">
-    <a href="{{ path('certificate_index') }}" class="btn btn-default">Wróć do listy</a>
+    <a href="{{ path('province_index') }}" class="btn btn-default">Wróć do listy</a>
 
-    <a href="{{ path('certificate_edit', { 'id': certificate.id }) }}" class="btn btn-default">Edytuj</a>
+    <a href="{{ path('province_edit', { 'id': province.id }) }}" class="btn btn-default">Edytuj</a>
 
     {{ form_start(delete_form) }}
     <input type="submit" value="Usuń" class="btn btn-danger pull-right">

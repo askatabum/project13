@@ -68,13 +68,12 @@ class CustomerGroup
      */
     private $postoffice;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="province", type="string", length=255)
+   
+/**
+     * @ORM\ManyToOne(targetEntity="Province", inversedBy="customergroup")
+     * @ORM\JoinColumn(name="provinceid", referencedColumnName="id")
      */
-    private $province;
-
+   private $province; 
     /**
      * @var string
      *
@@ -114,6 +113,15 @@ public function __toString()
 {
     return (string) $this->getName();
 }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->customer = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Get id
      *
@@ -269,30 +277,6 @@ public function __toString()
     }
 
     /**
-     * Set province
-     *
-     * @param string $province
-     *
-     * @return CustomerGroup
-     */
-    public function setProvince($province)
-    {
-        $this->province = $province;
-
-        return $this;
-    }
-
-    /**
-     * Get province
-     *
-     * @return string
-     */
-    public function getProvince()
-    {
-        return $this->province;
-    }
-
-    /**
      * Set nip
      *
      * @param string $nip
@@ -411,13 +395,6 @@ public function __toString()
     {
         return $this->www;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->customer = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add customer
@@ -451,5 +428,29 @@ public function __toString()
     public function getCustomer()
     {
         return $this->customer;
+    }
+
+    /**
+     * Set province
+     *
+     * @param \AppBundle\Entity\Province $province
+     *
+     * @return CustomerGroup
+     */
+    public function setProvince(\AppBundle\Entity\Province $province = null)
+    {
+        $this->province = $province;
+
+        return $this;
+    }
+
+    /**
+     * Get province
+     *
+     * @return \AppBundle\Entity\Province
+     */
+    public function getProvince()
+    {
+        return $this->province;
     }
 }

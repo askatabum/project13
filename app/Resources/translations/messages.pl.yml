@@ -43,12 +43,9 @@ coronanumber: Indeks Corona
 producernumber: Indeks Klienta
 descriptionlocation: Opis lokalizacji
 tank: Zbiornik
+Company: Komentarz
 Certificates: Certyfikaty
 certificate: certyfikat
 pdfFile: Plik w systemie
 returnedName: Nazwa zwracana   
-Customer:
-    name: Nazwa
-
-Product:
-    name: 'Nazwa produktu'
+www: Strona internetowa
