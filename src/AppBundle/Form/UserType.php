@@ -6,21 +6,29 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProductType extends AbstractType
+class UserType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('serialnumber')->add('yearofproduction')->add('coronanumber')->add('producernumber')->add('descriptionlocation')->add('tank')->add('customerid')->add('productsizeid')->add('producttypeid')->add('producerid');
-    }/**
+        $builder>add('name')->add('phone');
+    }
+    
+    public function getParent()
+   {
+       return 'FOSUserBundleFormTypeRegistrationFormType';
+
+   }
+    
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Product'
+            'data_class' => 'AppBundle\Entity\User'
         ));
     }
 
@@ -29,7 +37,7 @@ class ProductType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_product';
+        return 'appbundle_user';
     }
 
 

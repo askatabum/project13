@@ -28,7 +28,16 @@ class Producer
      */
     private $name;
 
-
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="producerid")
+     */
+    private $product;
+    
+        
+    public function __toString()
+{
+    return (string) $this->getName();
+}
     /**
      * Get id
      *
@@ -62,5 +71,45 @@ class Producer
     {
         return $this->name;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add product
+     *
+     * @param \AppBundle\Entity\Product $product
+     *
+     * @return Producer
+     */
+    public function addProduct(\AppBundle\Entity\Product $product)
+    {
+        $this->product[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \AppBundle\Entity\Product $product
+     */
+    public function removeProduct(\AppBundle\Entity\Product $product)
+    {
+        $this->product->removeElement($product);
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+}

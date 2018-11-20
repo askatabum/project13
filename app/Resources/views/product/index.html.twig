@@ -23,14 +23,14 @@
         <thead>
             <tr>
                 <th>{{ 'id'| trans }}</th>
-                <th>{{ 'name'| trans }}</th>
-                <th>{{ 'productid'| trans }}</th>
-                <th>{{ 'size'| trans }}</th>
+                <th>{{ 'klient'| trans }}</th>
+                <th>{{ 'producttype'| trans }}</th>
+                <th>{{ 'productsize'| trans }}</th>
+                <th>{{ 'producerid'| trans }}</th>
                 <th>{{ 'serialnumber'| trans }}</th>
                 <th>{{ 'yearofproduction'| trans }}</th>
                 <th>{{ 'coronanumber'| trans }}</th>
                 <th>{{ 'producernumber'| trans }}</th>
-                <th>{{ 'customerid'| trans }}</th>
                 <th>{{ 'descriptionlocation'| trans }}</th>
                 <th>{{ 'tank'| trans }}</th>            
 
@@ -51,14 +51,15 @@
                     </a>   
                           <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.id }}</a> 
                 </td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.productid }}</td>
-                <td>{{ product.size }}</td>
+                
+                <td>{{ product.customerid }}</td>
+                <td>{{ product.producttypeid }}</td>
+                <td>{{ product.productsizeid }}</td>
+                <td>{{ product.producerid }}</td>
                 <td>{{ product.serialnumber }}</td>
                 <td>{{ product.yearofproduction }}</td>
                 <td>{{ product.coronanumber }}</td>
                 <td>{{ product.producernumber }}</td>
-                <td>{{ product.customerid }}</td>
                 <td>{{ product.descriptionlocation }}</td>
                 <td>{{ product.tank }}</td>
             </tr>

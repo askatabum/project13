@@ -28,7 +28,15 @@ class ProductSize
      */
     private $name;
 
-
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="productsizeid")
+     */
+    private $product;
+    
+    public function __toString()
+{
+    return (string) $this->getName();
+}
     /**
      * Get id
      *
@@ -62,5 +70,45 @@ class ProductSize
     {
         return $this->name;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add product
+     *
+     * @param \AppBundle\Entity\Product $product
+     *
+     * @return ProductSize
+     */
+    public function addProduct(\AppBundle\Entity\Product $product)
+    {
+        $this->product[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \AppBundle\Entity\Product $product
+     */
+    public function removeProduct(\AppBundle\Entity\Product $product)
+    {
+        $this->product->removeElement($product);
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+}

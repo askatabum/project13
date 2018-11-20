@@ -49,3 +49,12 @@ certificate: certyfikat
 pdfFile: Plik w systemie
 returnedName: Nazwa zwracana   
 www: Strona internetowa
+Product: Produkt
+Size: Rozmiar
+Serialnumber: Numer seryjny wewnętrzny
+Yearofproduction: Rok produkcji
+Coronanumber: Nr. seryjny Corona
+Producernumber: Numer seryjny producenta
+Descriptionlocation: Opis lokalizacji
+Tank: Zbiornik
+Productid: Producent

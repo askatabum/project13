@@ -5,79 +5,77 @@
 {% block typeview %}typ widoku{% endblock %}
 
 {% block body %}
-   <div class="box boxtable">
-            <div class="box-header">
-                <h3 class="box-title">{{ 'Customers'| trans }} <small>wszystkie rekordy</small></h3>
-                <div class="box-tools pull-right">
-                    <a type="button" href="{{ path('customer_new') }}" class="btn btn-sm btn-success" >
-                        <span class="fa fa-plus-square"></span>
-                        {{ 'create' | trans }} {{ 'customer'| trans }}
-                    </a>
-                </div>
+    <div class="box boxtable">
+        <div class="box-header">
+            <h3 class="box-title">{{ 'Customers'| trans }} <small>wszystkie rekordy</small></h3>
+            <div class="box-tools pull-right">
+                <a type="button" href="{{ path('customer_new') }}" class="btn btn-sm btn-success" >
+                    <span class="fa fa-plus-square"></span>
+                    {{ 'create' | trans }} {{ 'customer'| trans }}
+                </a>
             </div>
-            <!-- /.box-header -->
-            
-            
-            
-            
-            
-            <div class="box-body">
-                <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>{{ 'id'| trans }}</th>
-                <th>{{ 'name'| trans }}</th>
-                <th>{{ 'company'| trans }}</th>
-                <th>{{ 'street'| trans }}</th>
-                <th>{{ 'city'| trans }}</th>
-                <th>{{ 'zipcode'| trans }}</th>
-                <th>{{ 'postoffice'| trans }}</th>
-                <th>{{ 'province'| trans }}</th>
-                <th>{{ 'nip'| trans }}</th>
-                <th>{{ 'email'| trans }}</th>
-                <th>{{ 'phone1'| trans }}</th>
-                <th>{{ 'phone2'| trans }}</th>
-                <th>{{ 'www'| trans }}</th>            
-
-               
-            </tr>
-        </thead>
-        <tbody>
-        {% for customer in customers %}
-            <tr>    <td>
-                                        <a href="{{ path('customer_show', { 'id': customer.id }) }}" class="btn btn-xs">
-                        <i class="fa fa-eye"></i>
-                    </a>
-                       
-                    
-                       
-                                        <a href="{{ path('customer_edit', { 'id': customer.id }) }}"class="btn btn-xs">
-                        <i class="fa fa-edit"></i>    
-                    </a>   
-                          <a href="{{ path('customer_show', { 'id': customer.id }) }}">{{ customer.id }}</a> 
-                </td>
-                <td>{{ customer.name }}</td>
-                <td>{{ customer.company }}</td>
-                <td>{{ customer.street }}</td>
-                <td>{{ customer.city }}</td>
-                <td>{{ customer.zipcode }}</td>
-                <td>{{ customer.postoffice }}</td>
-                <td>{{ customer.province }}</td>
-                <td>{{ customer.nip }}</td>
-                <td>{{ customer.email }}</td>
-                <td>{{ customer.phone1 }}</td>
-                <td>{{ customer.phone2 }}</td>
-                <td>{{ customer.www }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-</div>
-            </div>
-            <!-- /.box-body -->
         </div>
-     
+        <!-- /.box-header -->
+
+
+
+
+
+        <div class="box-body">
+            <div class="table-responsive">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>{{ 'id'| trans }}</th>
+                            <th>{{ 'name'| trans }}</th>
+                            <th>{{ 'company'| trans }}</th>
+                            <th>{{ 'city'| trans }}</th>
+                            <th>{{ 'email'| trans }}</th>
+                            <th>{{ 'phone1'| trans }}</th>
+                            <th>{{ 'phone2'| trans }}</th>            
+                            <th>{{ 'street'| trans }}</th>           
+                            <th>{{ 'zipcode'| trans }}</th>
+                            <th>{{ 'postoffice'| trans }}</th>
+                            <th>{{ 'province'| trans }}</th>
+                            <th>{{ 'nip'| trans }}</th>
+                            <th>{{ 'www'| trans }}</th>                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for customer in customers %}
+                            <tr>    <td>
+                                    <a href="{{ path('customer_show', { 'id': customer.id }) }}" class="btn btn-xs">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+
+
+
+                                    <a href="{{ path('customer_edit', { 'id': customer.id }) }}"class="btn btn-xs">
+                                        <i class="fa fa-edit"></i>    
+                                    </a>   
+                                    <a href="{{ path('customer_show', { 'id': customer.id }) }}">{{ customer.id }}</a> 
+                                </td>
+                                <td>{{ customer.name }}</td>
+                                <td>{{ customer.company }}</td>
+                                <td>{{ customer.city }}</td>
+                                <td>{{ customer.email }}</td>
+                                <td>{{ customer.phone1 }}</td>
+                                <td>{{ customer.phone2 }}</td>
+                                <td>{{ customer.street }}</td>         
+                                <td>{{ customer.zipcode }}</td>
+                                <td>{{ customer.postoffice }}</td>
+                                <td>{{ customer.province }}</td>
+                                <td>{{ customer.nip }}</td>              
+                                <td>{{ customer.www }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <!-- /.box-body -->
+    </div>
+
 
 {% endblock %}

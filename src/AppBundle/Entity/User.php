@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -17,10 +18,21 @@ class User extends BaseUser
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+   protected $id;
 
+   /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="producerid")
+   */
+   private $product;
     
-    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=25, nullable=true)
+     */
+   private $phone;      
+   
+
     public function __construct()
     {
        parent::__construct();
@@ -28,108 +40,68 @@ class User extends BaseUser
     }
 
    
-
+   
    
 
+    
+
+
+
     /**
-     * Add hosting
+     * Set phone
      *
-     * @param \AppBundle\Entity\Hosting $hosting
+     * @param string $phone
      *
      * @return User
      */
-    public function addHosting(\AppBundle\Entity\Hosting $hosting)
+    public function setPhone($phone)
     {
-        $this->hosting[] = $hosting;
+        $this->phone = $phone;
 
         return $this;
     }
 
     /**
-     * Remove hosting
+     * Get phone
      *
-     * @param \AppBundle\Entity\Hosting $hosting
+     * @return string
      */
-    public function removeHosting(\AppBundle\Entity\Hosting $hosting)
+    public function getPhone()
     {
-        $this->hosting->removeElement($hosting);
+        return $this->phone;
     }
 
     /**
-     * Get hosting
+     * Add product
      *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getHosting()
-    {
-        return $this->hosting;
-    }
-
-    /**
-     * Add customerevent
-     *
-     * @param \AppBundle\Entity\CustomerEvent $customerevent
+     * @param \AppBundle\Entity\Product $product
      *
      * @return User
      */
-    public function addCustomerevent(\AppBundle\Entity\CustomerEvent $customerevent)
+    public function addProduct(\AppBundle\Entity\Product $product)
     {
-        $this->customerevent[] = $customerevent;
+        $this->product[] = $product;
 
         return $this;
     }
 
     /**
-     * Remove customerevent
+     * Remove product
      *
-     * @param \AppBundle\Entity\CustomerEvent $customerevent
+     * @param \AppBundle\Entity\Product $product
      */
-    public function removeCustomerevent(\AppBundle\Entity\CustomerEvent $customerevent)
+    public function removeProduct(\AppBundle\Entity\Product $product)
     {
-        $this->customerevent->removeElement($customerevent);
+        $this->product->removeElement($product);
     }
 
     /**
-     * Get customerevent
+     * Get product
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCustomerevent()
+    public function getProduct()
     {
-        return $this->customerevent;
-    }
-
-    /**
-     * Add project
-     *
-     * @param \AppBundle\Entity\Project $project
-     *
-     * @return User
-     */
-    public function addProject(\AppBundle\Entity\Project $project)
-    {
-        $this->project[] = $project;
-
-        return $this;
-    }
-
-    /**
-     * Remove project
-     *
-     * @param \AppBundle\Entity\Project $project
-     */
-    public function removeProject(\AppBundle\Entity\Project $project)
-    {
-        $this->project->removeElement($project);
-    }
-
-    /**
-     * Get project
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProject()
-    {
-        return $this->project;
+        return $this->product;
     }
 }

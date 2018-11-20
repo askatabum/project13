@@ -4,7 +4,7 @@
   <!-- Default box -->
       <div class="box boxtable">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ 'Product'| trans }}</h3>
+          <h3 class="box-title">{{ 'User'| trans }}</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -19,31 +19,11 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ product.id }}</td>
+                <td>{{ user.id }}</td>
             </tr>
             <tr>
-                <th>Serialnumber</th>
-                <td>{{ product.serialnumber }}</td>
-            </tr>
-            <tr>
-                <th>Yearofproduction</th>
-                <td>{{ product.yearofproduction }}</td>
-            </tr>
-            <tr>
-                <th>Coronanumber</th>
-                <td>{{ product.coronanumber }}</td>
-            </tr>
-            <tr>
-                <th>Producernumber</th>
-                <td>{{ product.producernumber }}</td>
-            </tr>
-            <tr>
-                <th>Descriptionlocation</th>
-                <td>{{ product.descriptionlocation }}</td>
-            </tr>
-            <tr>
-                <th>Tank</th>
-                <td>{{ product.tank }}</td>
+                <th>Phone</th>
+                <td>{{ user.phone }}</td>
             </tr>
         </tbody>
     </table>
@@ -53,9 +33,9 @@
             
 
 <div class="box-footer">
-    <a href="{{ path('product_index') }}" class="btn btn-default">Wróć do listy</a>
+    <a href="{{ path('user_index') }}" class="btn btn-default">Wróć do listy</a>
 
-    <a href="{{ path('product_edit', { 'id': product.id }) }}" class="btn btn-default">Edytuj</a>
+    <a href="{{ path('user_edit', { 'id': user.id }) }}" class="btn btn-default">Edytuj</a>
 
     {{ form_start(delete_form) }}
     <input type="submit" value="Usuń" class="btn btn-danger pull-right">

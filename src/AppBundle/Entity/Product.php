@@ -21,27 +21,28 @@ class Product
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false, unique=false)
-     */
-    private $name;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="productid", type="integer", nullable=false, unique=false)
+/**
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="product")
+     * @ORM\JoinColumn(name="customerid", referencedColumnName="id")
      */
-    private $productid;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="size", type="integer", nullable=true, unique=false)
+    private $customerid;
+   /**
+     * @ORM\ManyToOne(targetEntity="ProductSize", inversedBy="product")
+     * @ORM\JoinColumn(name="productsizeid", referencedColumnName="id")
      */
-    private $size;
-
+    private $productsizeid;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="ProductType", inversedBy="product")
+     * @ORM\JoinColumn(name="producttypeid", referencedColumnName="id")
+     */
+    private $producttypeid;
+/**
+     * @ORM\ManyToOne(targetEntity="Producer", inversedBy="product")
+     * @ORM\JoinColumn(name="producerid", referencedColumnName="id")
+     */
+    private $producerid;
     /**
      * @var string
      *
@@ -70,12 +71,7 @@ class Product
      */
     private $producernumber;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="customerid", type="integer", nullable=true, unique=false)
-     */
-    private $customerid;
+    
 
     /**
      * @var string
@@ -91,7 +87,11 @@ class Product
      */
     private $tank;
     
-   
+/**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="product")
+     * @ORM\JoinColumn(name="userid", referencedColumnName="id")
+     */
+    private $userid;   
 
     /**
      * Get id
@@ -103,29 +103,7 @@ class Product
         return $this->id;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Product
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+  
 
     /**
      * Set productid
@@ -342,5 +320,103 @@ class Product
     {
         return $this->tank;
     }
-}
 
+    /**
+     * Set productsizeid
+     *
+     * @param \AppBundle\Entity\ProductSize $productsizeid
+     *
+     * @return Product
+     */
+    public function setProductsizeid(\AppBundle\Entity\ProductSize $productsizeid = null)
+    {
+        $this->productsizeid = $productsizeid;
+
+        return $this;
+    }
+
+    /**
+     * Get productsizeid
+     *
+     * @return \AppBundle\Entity\ProductSize
+     */
+    public function getProductsizeid()
+    {
+        return $this->productsizeid;
+    }
+
+    /**
+     * Set producttypeid
+     *
+     * @param \AppBundle\Entity\ProductType $producttypeid
+     *
+     * @return Product
+     */
+    public function setProducttypeid(\AppBundle\Entity\ProductType $producttypeid = null)
+    {
+        $this->producttypeid = $producttypeid;
+
+        return $this;
+    }
+
+    /**
+     * Get producttypeid
+     *
+     * @return \AppBundle\Entity\ProductType
+     */
+    public function getProducttypeid()
+    {
+        return $this->producttypeid;
+    }
+
+    /**
+     * Set producerid
+     *
+     * @param \AppBundle\Entity\Producer $producerid
+     *
+     * @return Product
+     */
+    public function setProducerid(\AppBundle\Entity\Producer $producerid = null)
+    {
+        $this->producerid = $producerid;
+
+        return $this;
+    }
+
+    /**
+     * Get producerid
+     *
+     * @return \AppBundle\Entity\Producer
+     */
+    public function getProducerid()
+    {
+        return $this->producerid;
+    }
+
+    /**
+     * Set userid
+     *
+     * @param \AppBundle\Entity\User $userid
+     *
+     * @return Product
+     */
+    public function setUserid(\AppBundle\Entity\User $userid = null)
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        $userId = $user->getId();
+        
+        $this->userid = $userId;
+
+        return $this;
+    }
+ 
+    /**
+     * Get userid
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUserid()
+    {
+        return $this->userid;
+    }
+}

@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Product controller.
  *
- * @Route("_appadmin/product")
+ * @Route("product")
  */
 class ProductController extends Controller
 {
